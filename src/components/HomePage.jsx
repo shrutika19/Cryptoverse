@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom'
 import Cryptocurrencies from './Cryptocurrencies'
 import News from './News'
 const { Title } = Typography
+import Loader from './Loader'
 
 const HomePage = () => {
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats;
 
-    if (isFetching) return 'Loading..';
+    if (isFetching) return <Loader />
     return (
         <>
             <Title level={2} className='heading' >Global Crypto Stats</Title>
